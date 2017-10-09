@@ -3,6 +3,7 @@
 //---------DEPENDANCIES-------------//
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require("path");
 
 //------SETTTING UP THE EXPRESS APP ------/
 var app = express();
@@ -24,3 +25,27 @@ app.listen(PORT, function(){
 	console.log("App is listening on PORT " + PORT);
 });
 
+app.get("/", function(req,res){
+	res.sendFile(path.join(__dirname, "/public/index.html"));
+
+
+});
+
+app.get("/store", function(req,res){
+	res.sendFile(path.join(__dirname, "/public/storefront.html"));
+
+
+
+});
+
+app.get("/meetup", function(req,res){
+	res.sendFile(path.join(__dirname, "/public/meetup.html"));
+
+
+
+});
+
+
+
+// req.params.characters
+//app.get"/:characters

@@ -1,0 +1,33 @@
+body{
+	background-color: #e3f2fd;
+}
+
+.jumbotron{
+	background-color: #97D2FD;
+	/*background-image: url("https://static.pexels.com/photos/459225/pexels-photo-459225.jpeg");*/
+	height: 420px;
+	margin-bottom: 90px;
+}
+
+
+.footer {
+  position: static;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #FDCBCA;
+  text-align: center;
+  height: 100px;
+
+
+}
+
+
+.container h3{
+	text-align: center;
+}
+
+.membersContainer{
+	background-color:  #D7FEFA;
+}

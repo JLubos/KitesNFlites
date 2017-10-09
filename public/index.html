@@ -1,9 +1,210 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Kites N Flites</title>
+
+	<!-- Link Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<!-- Link CSS -->
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
 </head>
 <body>
 
+<!-- Navbar Start -->
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Kites N Flites</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Store</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Meet Up</a>
+      </li>
+    </ul>
+</nav>
+
+<!-- Navbar End -->
+
+
+
+
+
+<!--Jumbotron Start -->
+
+<div class="jumbotron">
+  <h1 class="display-3">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+
+<!--Jumbotron End -->
+
+
+
+
+
+<!-- Google maps Start -->
+
+<div class="container">
+	<h3>My Google Maps Demo</h3>
+	<br>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 29.7604, lng: -95.3698};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: uluru
+        });
+        var mainMarker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+
+        var hermannPark = new google.maps.Marker({
+          position: {lat: 29.7213116, lng: -95.390363},
+          map: map
+        });
+
+         var discoveryGreen = new google.maps.Marker({
+          position: {lat: 29.7531, lng: -95.3597},
+          map: map
+        });
+
+        var sesquicentennialPark = new google.maps.Marker({
+          position: {lat: 29.7643, lng: -95.3651},
+          map: map
+        });
+
+        var marketSquarePark = new google.maps.Marker({
+          position: {lat: 29.7626, lng: -95.3624},
+          map: map
+        });
+
+        var galenaPark = new google.maps.Marker({
+          position: {lat: 29.7336, lng: -95.2302},
+          map: map
+        });
+
+        var memorialPark = new google.maps.Marker({
+          position: {lat: 29.7653, lng: -95.4411},
+          map: map
+        });
+ 
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClQ9AK7RAjv-i1YaH882QUfpyesUz0zaE&callback=initMap">
+    </script>
+</div>
+
+<!---Google Maps End -->
+
+
+<div class = "container">
+	<div class ="row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-6">
+		Insert Text
+		</div>
+		<div class = "col-md-2">
+			Place image here
+		</div>
+		<div class = "col-md-2">
+		</div>
+	</div>
+
+	<div class ="row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-2">
+		Place image here
+		</div>
+		<div class = "col-md-6">
+			Insert Text
+		</div>
+		<div class = "col-md-2">
+		</div>
+	</div>
+</div>
+
+
+<div class ="membersContainer">
+	<div class ="row">
+		<h1>Group Members</h1>
+	</div>
+
+	<div class = "row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-2">
+		Place image here
+		</div>
+		<div class = "col-md-6">
+		Insert Text
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-6">
+		Insert Text
+		</div>
+		<div class = "col-md-2">
+		Place image here
+		</div>
+		
+	</div>
+
+	<div class = "row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-2">
+		Place image here
+		</div>
+		<div class = "col-md-6">
+		Insert Text
+		</div>
+	</div>
+</div>
+
+
+<div class="footer">
+
+	<h1>Contact Us!</h1>
+
+	Contact
+	FAQ
+	Terms and COnditiosn
+	Prvacy Policy
+</div>
+
+
+
+
+
+
 </body>
+
+
 </html>
