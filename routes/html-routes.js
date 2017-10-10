@@ -15,8 +15,6 @@ module.exports = function(app) {
   res.render("index");
   res.render("index",{table_name: res})
 
-
-
 });*/
 
   app.get("/store", function(req,res){
