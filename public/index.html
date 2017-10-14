@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Kites N Flites</title>
-
+	<head>
+		<title>Kites N Flites</title>
 	<meta charset="UTF-8">
 
-	<!-- Link Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/animate/animate.css" />
+	<link rel="stylesheet" href="assets/animate/set.css" />
+
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 	<!-- Link CSS -->
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
-<style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-</head>
+	</head>
+
 <body>
 
+
 <!-- Navbar Start -->
+<nav class="navbar navbar-default" >
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Kites N Flites</a>
+    </div>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="#">Kites N Flites</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Store</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Meet Up</a>
-      </li>
-    </ul>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Meet Up</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
 <!-- Navbar End -->
@@ -44,163 +46,216 @@
 
 
 
-
-<!--Jumbotron Start -->
+<!-- Jumbotron Start -->
 
 <div class="jumbotron">
-  <h1 class="display-3">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
+  <h1>SKY IS THE LIMIT. FLY ABOVE IT</h1>      
+  <p>Run as far as your imagination wil take you.</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 
-<!--Jumbotron End -->
+
+<!-- Jumbotron End -->
 
 
 
 
-
-<!-- Google maps Start -->
-
-<div class="container">
-	<h3>My Google Maps Demo</h3>
-	<br>
-    <div id="map"></div>
+<div class ="container-fluid container1">
+	<div class="row">
+		<div class= "col-md-1">
+		</div>
+		<div class= "col-md-5">
+			<div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClQ9AK7RAjv-i1YaH882QUfpyesUz0zaE&libraries=places&callback=initMap" async defer></script>
     <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var map;
+      var infowindow;
+
       function initMap() {
-        var uluru = {lat: 29.7604, lng: -95.3698};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: uluru
-        });
-        var mainMarker = new google.maps.Marker({
-          position: uluru,
-          map: map
+        var houston = {lat: 29.7604, lng: -95.3698};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: houston,
+          zoom: 15
         });
 
-        var hermannPark = new google.maps.Marker({
-          position: {lat: 29.7213116, lng: -95.390363},
-          map: map
-        });
-
-         var discoveryGreen = new google.maps.Marker({
-          position: {lat: 29.7531, lng: -95.3597},
-          map: map
-        });
-
-        var sesquicentennialPark = new google.maps.Marker({
-          position: {lat: 29.7643, lng: -95.3651},
-          map: map
-        });
-
-        var marketSquarePark = new google.maps.Marker({
-          position: {lat: 29.7626, lng: -95.3624},
-          map: map
-        });
-
-        var galenaPark = new google.maps.Marker({
-          position: {lat: 29.7336, lng: -95.2302},
-          map: map
-        });
-
-        var memorialPark = new google.maps.Marker({
-          position: {lat: 29.7653, lng: -95.4411},
-          map: map
-        });
- 
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: houston,
+          radius: 1000,
+          type: ['park']
+        }, callback);
       }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClQ9AK7RAjv-i1YaH882QUfpyesUz0zaE&callback=initMap">
-    </script>
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+    </script> 
+
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class ="col-md-4">
+
+			<iframe src="https://open.spotify.com/embed/user/126852223/playlist/030YE2NEDyTvlL1tnUSd2p" width="400" height="400" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+	</div>
 </div>
+<br><br>
 
-<!---Google Maps End -->
 
 
-<div class = "container">
+
+
+<div class ="container-fluid container2">
+	<br>
 	<div class ="row">
 		<div class = "col-md-2">
 		</div>
 		<div class = "col-md-6">
-		Insert Text
+			<h1>Fly High</h1>
+			<p> Be sure your kite is put together correctly, or it may not fly. Deltas, Diamonds and Dragon kites fly well in light to medium winds (approximately 6-15 mph) while Box Kites and stickless Parafoil kites fly better when the winds get a little stronger (approximately 8-25 mph). Equip your self with the right kite and your bound to dominate the sky.</p>
+		</div>
+
+		<br>
+		<div class="row">
+		<div class = "col-md-2">
+			<img src="images/4.jpg">
 		</div>
 		<div class = "col-md-2">
-			Place image here
 		</div>
-		<div class = "col-md-2">
 		</div>
 	</div>
 
+	<br><hr>
 	<div class ="row">
 		<div class = "col-md-2">
 		</div>
 		<div class = "col-md-2">
-		Place image here
+			<img src="images/4.jpg">
 		</div>
 		<div class = "col-md-6">
-			Insert Text
+			<h1> Meet Up </h1>
+			<p> Meet new friends. Connect with old ones. Experience new ways to have fun! It's all about connection!</p>
 		</div>
 		<div class = "col-md-2">
 		</div>
 	</div>
-</div>
 
 
-<div class ="membersContainer">
+	<br><hr>
 	<div class ="row">
-		<h1>Group Members</h1>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-2">
-		</div>
-		<div class = "col-md-2">
-		Place image here
-		</div>
-		<div class = "col-md-6">
-		Insert Text
-		</div>
-	</div>
-
-	<div class = "row">
 		<div class = "col-md-2">
 		</div>
 		<div class = "col-md-6">
-		Insert Text
+			<h1>Have Fun</h1>
+			<p> 
+				Check the local parks in your area and the wind conditions. Save which ones you find the best and keep that list for the weekend. Kites N Flites is all about having fun and getting outside!
+			</p>
 		</div>
 		<div class = "col-md-2">
-		Place image here
-		</div>
-		
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-2">
+			<img src="images/4.jpg">
 		</div>
 		<div class = "col-md-2">
-		Place image here
-		</div>
-		<div class = "col-md-6">
-		Insert Text
 		</div>
 	</div>
+	<br>
 </div>
 
 
-<div class="footer">
 
-	<h1>Contact Us!</h1>
 
-	Contact
-	FAQ
-	Terms and COnditiosn
-	Prvacy Policy
+
+
+
+<div class ="container-fluid container3" style="background-color: #FF7888;">
+	<br>
+	<div class ="row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-6">
+			<h2>Jeremy</h2>
+			<p> Be sure your kite is put together correctly, or it may not fly. Deltas, Diamonds and Dragon kites fly well in light to medium winds (approximately 6-15 mph) while Box Kites and stickless Parafoil kites fly better when the winds get a little stronger (approximately 8-25 mph)</p>
+		</div>
+		<div class = "col-md-2">
+			<img src="images/10.jpg">
+		</div>
+		<div class = "col-md-2">
+		</div>
+	</div>
+	<br><hr>
+
+	<div class ="row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-6">
+			<img src="images/11.png">
+		</div>
+		<div class = "col-md-2">
+			<h2> Yayha </h2>
+			<p>Yayha</p>
+		</div>
+		<div class = "col-md-2">
+		</div>
+	</div>
+	<br><hr>
+
+	<div class ="row">
+		<div class = "col-md-2">
+		</div>
+		<div class = "col-md-6">
+			<h2>Justin</h2>
+			<p> Be sure your kite is put together correctly, or it may not fly. Deltas, Diamonds and Dragon kites fly well in light to medium winds (approximately 6-15 mph) while Box Kites and stickless Parafoil kites fly better when the winds get a little stronger (approximately 8-25 mph)</p>
+		</div>
+		<div class = "col-md-2">
+			<img src="images/4.jpg">
+		</div>
+		<div class = "col-md-2">
+		</div>
+	</div>
+	<br>
 </div>
 
+
+</div>
+
+
+
+
+
+
+
+<!-- Footer Start -->
+	<div class="footer">
+		<i class="fa fa-facebook" style="font-size:100px">  </i>
+
+		<i class="fa fa-twitter" style="font-size:100px">  </i>
+		<i class="fa fa-instagram" style="font-size:100px">  </i>
+		<i class="fa fa-snapchat-square" style="font-size:100px">  </i>
+	</div>
+<!-- Footer End -->
 
 
 

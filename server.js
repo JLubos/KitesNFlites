@@ -3,18 +3,30 @@
 //---------DEPENDANCIES-------------//
 var express = require("express");
 var bodyParser = require("body-parser");
-var path = require("path");
+var methodOverride = require('method-override');
+var exphbs = require('express-handlebars');
 
 //------SETTTING UP THE EXPRESS APP ------/
 var app = express();
+app.use(express.static(__dirname +'/public'));
+
 var PORT = process.env.PORT || 3000;
+
+
+
+
+
+app.use(methodOverride('_method'));
+app.engine('handlerbars', exphbs({
+
+}));
 
 //------REQUIRE MODEL FOR SYNCING -----//
 var db = require("./models");
 
 //-----EXPRESS STUFF ------/
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
@@ -23,10 +35,6 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.listen(PORT, function(){
 	console.log("App is listening on PORT " + PORT);
 });
-
-
-//static directory
-//app.use(express.static("app/public"));
 
 
 //------ROUTES --------//

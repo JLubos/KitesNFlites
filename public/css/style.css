@@ -1,13 +1,7 @@
 body{
-	background-color: #e3f2fd;
+	
 }
-
-.jumbotron{
-	background-color: #97D2FD;
-	/*background-image: url("https://static.pexels.com/photos/459225/pexels-photo-459225.jpeg");*/
-	height: 420px;
-	margin-bottom: 90px;
-}
+	
 
 
 .footer {
@@ -18,16 +12,75 @@ body{
   padding: 1rem;
   background-color: #FDCBCA;
   text-align: center;
-  height: 100px;
+  height: 100%;
 
 
 }
-
 
 .container h3{
 	text-align: center;
 }
 
-.membersContainer{
-	background-color:  #D7FEFA;
+
+.carousel{
+
+	height: 400px;
+}
+
+.col-md-2 img{
+	height: 150px;
+	border-radius: 8px;
+	
+}
+
+.col-md-6 img{
+	height: 150px;
+	border-radius: 8px;
+}
+
+.carousel-inner .item{
+
+	height:1300px;
+}
+
+
+.container1{
+	
+}
+
+
+
+.container2{
+	background-color: #F3D250;
+}
+
+.container3{
+	background-color: #FF7888;
+}
+
+
+#map {
+        height: 400px;
+        width: 100%;
+}
+
+.navbar{
+	margin:-2px;
+	border-color: black;
+	background-color: #F3D250
+
+}
+
+
+.jumbotron{
+
+	background-image: url("../images/7.jpg");
+	max-width: 100%;
+	height:500px;
+	color: white;
+	text-shadow: 2px 2px black;
+}
+
+hr{
+	width:70%;
 }
