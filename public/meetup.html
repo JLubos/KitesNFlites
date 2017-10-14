@@ -57,15 +57,15 @@
   <div class="form-row">
     <div class="col-7">
       <label for="inputCity">City</label>
-      <input type="text" class="form-control" placeholder="City">
+      <input type="text" class="form-control" id="cityinput" placeholder="City">
     </div>
     <div class="col">
       <label for="inputState">State</label>
-      <input type="text" class="form-control" placeholder="State">
+      <input type="text" class="form-control" id="stateinput" placeholder="State">
     </div>
     <div class="col">
       <label for="optionalZip">Zip Code</label>
-      <input type="text" class="form-control" placeholder="Zip (optional)">
+      <input type="text" class="form-control" id="zipinput" placeholder="Zip (optional)">
     </div>
   </div>
 
@@ -82,8 +82,24 @@
 </div>
 
 
-
-
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $(".btn btn-primary").on("click", function(event) {
+      event.preventDefault();
+      var newPartcipant = {
+        name: $("#exampleTextarea").val().trim(),
+        role: $("#zipinput").val().trim(),
+        age: $("#stateinput").val().trim(),
+        forcePoints: $("#cityinput").val().trim()
+      };
+      // Question: What does this code do??
+      $.post("/meetup", newPartcipant)
+      .done(function(data) {
+        console.log(data);
+        alert("Adding character...");
+      });
+    });
+  </script>
 
 
 </body>
