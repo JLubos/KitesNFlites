@@ -13,12 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
-<style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
+
 
 </head>
 <body>
@@ -28,7 +23,7 @@
 <!-- Navbar Start -->
 
 
-<nav class="navbar navbar-default" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -38,7 +33,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Store Front</a></li>
+        <!-- <li><a href="#">Store Front</a></li> -->
         <li><a href="#">Meet Up</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -51,14 +46,29 @@
 
 
 <div class="container">
-<form>
+
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="inputPark">Park Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Park Name">
+    <small id="emailHelp" class="form-text text-muted">Discover a new park around you.</small>
+  </div><!-- closes form group-->
+  
+  
+  <div class="form-row">
+    <div class="col-7">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" placeholder="City">
+    </div>
+    <div class="col">
+      <label for="inputState">State</label>
+      <input type="text" class="form-control" placeholder="State">
+    </div>
+    <div class="col">
+      <label for="optionalZip">Zip Code</label>
+      <input type="text" class="form-control" placeholder="Zip (optional)">
+    </div>
   </div>
-  
-  
+
 
   
 
@@ -68,7 +78,7 @@
   </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
 </div>
 
 
