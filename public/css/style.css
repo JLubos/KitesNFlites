@@ -1,8 +1,11 @@
 body{
+	color:black;
 	
 }
-	
 
+a{
+	color:black;
+}
 
 .footer {
   position: static;
@@ -10,7 +13,7 @@ body{
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #FDCBCA;
+  /*background-color: #FDCBCA;*/
   text-align: center;
   height: 100%;
 
