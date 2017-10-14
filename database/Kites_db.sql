@@ -5,10 +5,11 @@ CREATE DATABASE Kites_db;
 USE Kites_db;
 
 -- Creates the table "park" within Kites_db --
-CREATE TABLE park (
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+CREATE TABLE parks (
+  id INTEGER AUTO_INCREMENT NOT NULL,
   -- Column for name of parks --
-  name VARCHAR(30) NOT NULL,
+  parkName VARCHAR(30) NOT NULL,
+  recommend BOOLEAN,
   PRIMARY KEY (id)
 );
 
@@ -25,3 +26,15 @@ CREATE TABLE meetUp (
   -- Sets id as this table's primary key which means all data contained within it will be unique --
   PRIMARY KEY (id)
 );
+
+
+
+
+INSERT INTO parks
+(parkName, recommend)
+VALUES 
+("Sam Houston Park", 1),
+("Memorial Hermann Park", 0),
+("Sesquicentennial Park", 1);
+
+SELECT * FROM parks
