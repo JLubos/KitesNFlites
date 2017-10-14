@@ -1,131 +1,102 @@
-// Dependancies
+// ===============================================================================
+// LOAD DATA
+// We are linking our routes to a series of "data" sources.
+// These data sources hold arrays of information on table-data, waitinglist, etc.
+// ===============================================================================
+
+// The follow two lines work with data in the js files
+// This data is only persistent until the server is restarted
+// var tableData = require("../data/tableData");
+// var waitListData = require("../data/waitinglistData");
+
+var connection = require("../config/connection");
 
 
+// ===============================================================================
+// ROUTING
+// ===============================================================================
 
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
-// Dependencies
-// =============================================================
-var connection = require("../config/connection.js");
-
-
-// Routes
-// =============================================================
 module.exports = function(app) {
+  // API GET Requests
+  // Below code handles when users "visit" a page.
+  // In each of the below cases when a user visits a link
+  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
+  // ---------------------------------------------------------------------------
 
-  // Get all chirps
-  app.get("/api/all", function(req, res) {
+  app.get("/api/tables", function(req, res) {
 
-    var dbQuery = "SELECT * FROM chirps";
-
-    connection.query(dbQuery, function(err, result) {
-      res.json(result);
+    connection.query("SELECT * FROM reservations ORDER BY createdAt LIMIT 0,5", function(err, results){
+      res.json(results);
     });
 
+    //res.json(tableData);
   });
 
-  // Add a chirp
-  app.post("/api/new", function(req, res) {
+  app.get("/api/waitlist", function(req, res) {
 
-    console.log("Chirp Data:");
-    console.log(req.body);
-
-    var dbQuery = "INSERT INTO chirps (author, body, created_at) VALUES (?,?,?)";
-
-    connection.query(dbQuery, [req.body.author, req.body.body, req.body.created_at], function(err, result) {
-      console.log("Chirp Successfully Saved!");
-      res.end();
+    connection.query("SELECT * FROM reservations ORDER BY createdAt LIMIT 5, 10000000", function(err, results){
+      res.json(results);
     });
 
+    //res.json(waitListData);
   });
 
-};
+  // API POST Requests
+  // Below code handles when a user submits a form and thus submits data to the server.
+  // In each of the below cases, when a user submits form data (a JSON object)
+  // ...the JSON is pushed to the appropriate JavaScript array
+  // (ex. User fills out a reservation request... this data is then sent to the server...
+  // Then the server saves the data to the tableData array)
+  // ---------------------------------------------------------------------------
 
+  app.post("/api/tables", function(req, res) {
+    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
+    // It will do this by sending out the value "true" have a table
 
-
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
-// Dependencies
-// =============================================================
-
-// Requiring our Todo model
-var db = require("../models");
-
-// Routes
-// =============================================================
-module.exports = function(app) {
-
-  // GET route for getting all of the posts
-  app.get("/api/posts/", function(req, res) {
-    db.Post.findAll({})
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // Get route for returning posts of a specific category
-  app.get("/api/posts/category/:category", function(req, res) {
-    db.Post.findAll({
-      where: {
-        category: req.params.category
-      }
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // Get rotue for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
-    db.Post.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
-    console.log(req.body);
-    db.Post.create({
-      title: req.body.title,
-      body: req.body.body,
-      category: req.body.category
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(req.body,
-      {
-        where: {
-          id: req.body.id
+    var query = connection.query("INSERT INTO reservations SET ?", req.body, function(error, results, fields){
+      if(error) throw error;
+      
+      // Lets check how many rows are in the table now
+      connection.query("SELECT count(*) as tables FROM reservations", function(error, results){
+        console.log(results);
+        if(results[0].tables < 5){
+          res.json(true);
+        }else{
+          res.json(false);
         }
-      })
-    .then(function(dbPost) {
-      res.json(dbPost);
+      });
     });
+
+    // The follow is if you use arrays and json files on the server
+    // if (tableData.length < 5) {
+    //   tableData.push(req.body);
+    //   res.json(true);
+    // }
+    // else {
+    //   waitListData.push(req.body);
+    //   res.json(false);
+    // }
   });
-};
+
+  // ---------------------------------------------------------------------------
+  // I added this below code so you could clear out the table while working with the functionality.
+  // Don"t worry about it!
+
+  app.post("/api/clear", function() {
+    // Empty out the arrays of data
+    // If using .json files and objects
+    tableData = [];
+    waitListData = [];
+
+    // Lets Clear the Table/Wait List
+
+    connection.query("DELETE FROM reservations", function(error, results){
+      if(error) throw error;
+
+      console.log('deleted ' + results.affectedRows + ' rows');
+    }); // close connection.query
+
+    // console.log(tableData);
+  }); // close app.post
+
+}; // function(app)

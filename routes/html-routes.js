@@ -30,7 +30,7 @@ module.exports = function(app) {
 };
 
 
-var express = requie('express');
+var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req,res){

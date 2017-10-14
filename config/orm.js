@@ -15,7 +15,7 @@ var orm = {
 		})
 	},
 	create: function(tableInput, val, cb){
-		connection.query('INSERT INTO ' + tableInput+"(parkName) VALUES ('"+val+"');",
+		connection.query('INSERT INTO ' + tableInput+'(parkName) VALUES ("'+val+'");'), //<----
 			function(err,result){
 				if (err) throw err;
 				cb(result);
