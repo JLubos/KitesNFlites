@@ -59,9 +59,47 @@
   </div><!-- closes form group-->
 
   
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default" id="submit">Submit</button>
 </div>
 
+
+<script type="text/javascript">
+    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+      // Here we grab the form elements
+      var newParticipant = {
+        parkName: $("#parkName").val().trim(),
+        password: $("#pwd").val().trim(),
+        description: $("#exampleTextarea").val().trim()
+      };
+      console.log(newParticipant);
+      // This line is the magic. It"s very similar to the standard ajax function we used.
+      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+      // depending on if a tables is available or not.
+      $.post("/api/meetup", newParticipant,
+        function(data) {
+          // Tells the user if they have been added
+          if (data) {
+            alert("Yay! You have been added!");
+          }
+          // If a table is available... tell user they on the waiting list.
+          else {
+            alert("Sorry something went wrong");
+          }
+          // Clear the form when submitting
+          $("#parkname").val("");
+          $("#pwd").val("");
+          $("#exampleTextarea").val("");
+          //$("#reserve-unique-id").val("");
+          console.log(newParticipant);
+        });
+    });
+</script>
 
   <!--<script type="text/javascript">
     // Question: What does this code do?
