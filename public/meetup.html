@@ -57,7 +57,7 @@
       <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
   </div><!-- closes form group-->
   
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default" id="submit">Submit</button>
 </div>
 
 
@@ -66,13 +66,13 @@
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
     // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-    $(".submit").on("click", function(event) {
+    $("#submit").on("click", function(event) {
       event.preventDefault();
       // Here we grab the form elements
       var newParticipant = {
-        parkName: $("#parkname").val().trim(),
-        password: $("#password").val().trim(),
-        description: $("#description").val().trim(),
+        parkName: $("#parkName").val().trim(),
+        password: $("#pwd").val().trim(),
+        description: $("#exampleTextarea").val().trim()
       };
       console.log(newParticipant);
       // This line is the magic. It"s very similar to the standard ajax function we used.
@@ -91,8 +91,8 @@
           }
           // Clear the form when submitting
           $("#parkname").val("");
-          $("#password").val("");
-          $("#description").val("");
+          $("#pwd").val("");
+          $("#exampleTextarea").val("");
           //$("#reserve-unique-id").val("");
           console.log(newParticipant);
         });
