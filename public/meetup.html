@@ -29,7 +29,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/meetup" style="color:black;"">Meet Up</a></li>
+        <li><a href="/meetup" style="color:black;">Meet Up</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -38,6 +38,7 @@
 <!-- Navbar End -->
 
 <br>
+
 
 
 
@@ -54,12 +55,30 @@
     <div class="form-group">
       <label for="exampleTextarea">Description</label>
       <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-    </div>
-    <div class="checkbox">
-    <label><input type="checkbox"> Recommend?</label>
-  </div>
+  </div><!-- closes form group-->
+  
     <button type="submit" class="btn btn-default">Submit</button>
 </div>
+
+
+  <!--<script type="text/javascript">
+    // Question: What does this code do?
+    $(".btn btn-primary").on("click", function(event) {
+      event.preventDefault();
+      var newPartcipant = {
+        name: $("#exampleTextarea").val().trim(),
+        role: $("#zipinput").val().trim(),
+        age: $("#stateinput").val().trim(),
+        forcePoints: $("#cityinput").val().trim()
+      };
+      // Question: What does this code do??
+      $.post("/meetup", newPartcipant)
+      .done(function(data) {
+        console.log(data);
+        alert("Adding character...");
+      });
+    });
+  </script>-->
 
 </body>
 
