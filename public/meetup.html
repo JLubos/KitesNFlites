@@ -13,78 +13,53 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
-
-
 </head>
-<body>
+<body style="background: url('images/13.jpg') fixed center">
 
   
 
 <!-- Navbar Start -->
-
-
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" >
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Kites N Flites</a>
+      <a class="navbar-brand" style="color:black;" href="/">Kites N Flites</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <!-- <li><a href="#">Store Front</a></li> -->
-        <li><a href="#">Meet Up</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/meetup" style="color:black;"">Meet Up</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-
 <!-- Navbar End -->
+
+<br>
 
 
 
 <div class="container">
-
-  <div class="form-group">
-    <label for="inputPark">Park Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Park Name">
-    <small id="emailHelp" class="form-text text-muted">Discover a new park around you.</small>
-  </div><!-- closes form group-->
-  
-  
-  <div class="form-row">
-    <div class="col-7">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" placeholder="City">
+  <h2>Save a Park</h2>
+    <div class="form-group">
+      <label for="text">Park Name</label>
+      <input type="text" class="form-control" id="parkName" placeholder="Enter a park" name="park">
     </div>
-    <div class="col">
-      <label for="inputState">State</label>
-      <input type="text" class="form-control" placeholder="State">
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
     </div>
-    <div class="col">
-      <label for="optionalZip">Zip Code</label>
-      <input type="text" class="form-control" placeholder="Zip (optional)">
+    <div class="form-group">
+      <label for="exampleTextarea">Description</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
     </div>
+    <div class="checkbox">
+    <label><input type="checkbox"> Recommend?</label>
   </div>
-
-
-  
-
-  <div class="form-group">
-    <label for="exampleTextarea">Description</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
-
+    <button type="submit" class="btn btn-default">Submit</button>
 </div>
-
-
-
-
-
 
 </body>
 

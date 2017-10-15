@@ -9,6 +9,7 @@ CREATE TABLE parks (
   id INTEGER AUTO_INCREMENT NOT NULL,
   -- Column for name of parks --
   parkName VARCHAR(30) NOT NULL,
+  description VARCHAR(255),
   recommend BOOLEAN,
   PRIMARY KEY (id)
 );
