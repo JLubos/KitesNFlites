@@ -3,6 +3,10 @@ body{
 	/*background-image: url("images/12.jpg")*/
 }
 
+img{
+	opacity: 1.0;
+}
+
 a{
 	color:black;
 }
@@ -55,10 +59,12 @@ a{
 
 .container2{
 	background-color: #F3D250;
+	opacity:.83;
 }
 
 .container3{
 	background-color: #FF7888;
+	opacity: .83;
 }
 
 
@@ -82,8 +88,14 @@ a{
 	height:500px;
 	color: white;
 	text-shadow: 2px 2px black;
+	opacity:.92;
 }
 
 hr{
 	width:70%;
+}
+
+.container2 .text-center:hover{
+
+
 }

@@ -4,6 +4,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
+var path = require("path");
 
 
 //
@@ -23,11 +24,13 @@ app.set("view engine", "handlebars");
 
 
 //------REQUIRE MODEL FOR SYNCING -----//
-var db = require("./models");
+//var db = require("./models");
 
 //app.use("/", routes);
 // Import routes and give the server access to them.
 require("./routes/html-routes.js")(app);
+
+// var routes = require"./controllers/parksController.js
 
 //------LISTENING/STARTING APP ----/
 app.listen(PORT, function(){

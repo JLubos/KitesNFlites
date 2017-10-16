@@ -32,10 +32,10 @@ CREATE TABLE meetUp (
 
 
 INSERT INTO parks
-(parkName, recommend)
+(parkName, description, recommend)
 VALUES 
-("Sam Houston Park", 1),
-("Memorial Hermann Park", 0),
-("Sesquicentennial Park", 1);
+("Sam Houston Park", "Good Park!", 1),
+("Memorial Hermann Park", "Aight", 0),
+("Sesquicentennial Park", "Pretty Cool", 1);
 
 SELECT * FROM parks
